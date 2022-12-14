@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Matīsa/anketav2.css">
+    <title>Skolotāju Anketa</title>
+</head>
+
+<body>
+  
+    <div class="center">
+      
+        <h1>Skolotāju anketa</h1>
+        <form action="https://sheetdb.io/api/v1/w69sboyynnqm9" method="POST" id="sheetdb-form">
+          <div class="inputbox">
+            <input name="data[Vārds]" type="text" required="required">
+            <span>Vārds</span>
+          </div>
+          <div class="inputbox">
+            <input name="data[Uzvārds]" type="text" required="required">
+            <span>Uzvārds</span>
+          </div>
+          <div class="inputbox">
+            <input name="data[Klase]" type="text" required="required">
+            <span>Klase</span>
+          </div>
+          <div class="inputbox">
+            <input name="data[Skolotājs]" type="text" required="required">
+            <span>Skolotājs</span>
+          </div>
+          <div class="inputbox">
+            <input name="data[Īsi par skolotāju]" type="text" required="required">
+            <span>Īsi par skolotāju</span>
+          </div>
+          
+          <div class="inputbox">
+            <input type="submit" value="Iesniegt">
+          </div>
+        </form>
+      </div>
+    
+      <script>
+        var form = document.getElementById('sheetdb-form');
+        form.addEventListener("submit", e => {
+          e.preventDefault();
+          fetch(form.action, {
+              method : "POST",
+              body: new FormData(document.getElementById("sheetdb-form")),
+          }).then(
+              response => response.json()
+          ).then((html) => {
+            // you can put any JS code here
+            alert('Nosūtīts')
+          });
+        });
+      </script>
+
+</body>
+
+</html>
